@@ -117,7 +117,6 @@ class PageOutput
             "lastname"  => "Nachname",
             "last_login"=> "Letzter Besuch",
             "first_date"=> "Registriert am",
-            "info"      => "Info",
             "delete"    => "Diesen Benutzer wirklich l&ouml;schen ?"
         );
         
@@ -131,7 +130,6 @@ class PageOutput
             "lastname"  => "Lastname",
             "last_login"=> "Last visit",
             "first_date"=> "registered at",
-            "info"      => "Info",
             "delete"    => "Realy delete this user ?"
         );
         

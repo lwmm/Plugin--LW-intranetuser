@@ -33,7 +33,6 @@ class UserObjectFactory
             $this->newUObj->setFirstName($dataArray["opt1text"]);
             $this->newUObj->setLastName($dataArray["opt2text"]);
             $this->newUObj->setEmail($dataArray["email"]);
-            $this->newUObj->setInfo($dataArray["opt1clob"]);
         
         return $this->newUObj;
     }

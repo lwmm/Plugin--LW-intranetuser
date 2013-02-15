@@ -38,7 +38,6 @@
                 <?php if(isset($this->show["email"]) && $this->show["email"] == 1): ?>                  <th><?php echo $this->lang["email"] ?></th>     <?php endif; ?>
                 <?php if(isset($this->show["firstname"]) && $this->show["firstname"] == 1): ?>          <th><?php echo $this->lang["firstname"] ?></th> <?php endif; ?>
                 <?php if(isset($this->show["lastname"]) && $this->show["lastname"] == 1): ?>            <th><?php echo $this->lang["lastname"] ?></th>  <?php endif; ?>
-                <?php if(isset($this->show["info"]) && $this->show["info"] == 1): ?>                    <th><?php echo $this->lang["info"] ?></th>      <?php endif; ?>
                 <?php if(isset($this->show["last_login"]) && $this->show["last_login"] == 1): ?>        <th><?php echo $this->lang["last_login"] ?></th><?php endif; ?>
                 <?php if(isset($this->show["lw_first_date"]) && $this->show["lw_first_date"] == 1): ?>  <th><?php echo $this->lang["first_date"] ?></th><?php endif; ?>
                 <th style="width: 20px;">&nbsp;</th>
@@ -53,7 +52,6 @@
                     <?php if(isset($this->show["email"]) && $this->show["email"] == 1): ?>                  <td><?php echo $user["email"] ?></td>       <?php endif; ?>
                     <?php if(isset($this->show["firstname"]) && $this->show["firstname"] == 1): ?>          <td><?php echo $user["opt1text"] ?></td>    <?php endif; ?>
                     <?php if(isset($this->show["lastname"]) && $this->show["lastname"] == 1): ?>            <td><?php echo $user["opt2text"] ?></td>    <?php endif; ?>
-                    <?php if(isset($this->show["info"]) && $this->show["info"] == 1): ?>                    <td><?php echo $user["opt1clob"] ?></td>    <?php endif; ?>
                     <?php if(isset($this->show["last_login"]) && $this->show["last_login"] == 1): ?>        <td><?php echo $user["last_login"] ?></td>  <?php endif; ?>
                     <?php if(isset($this->show["lw_first_date"]) && $this->show["lw_first_date"] == 1): ?>  <td><?php echo $user["lw_first_date"] ?></td><?php endif; ?>
                     <td>

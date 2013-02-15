@@ -55,7 +55,6 @@ class backend extends \lw_object
         $parameter["show"]["email"]         = $this->request->getInt("email");
         $parameter["show"]["firstname"]     = $this->request->getInt("firstname");
         $parameter["show"]["lastname"]      = $this->request->getInt("lastname");
-        $parameter["show"]["info"]          = $this->request->getInt("info");
         $parameter["show"]["last_login"]    = $this->request->getInt("last_login");
         $parameter["show"]["lw_first_date"] = $this->request->getInt("lw_first_date");
         $parameter["selectedLang"]          = $this->request->getAlnum("selectedLang");
