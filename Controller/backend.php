@@ -59,6 +59,7 @@ class backend extends \lw_object
         $parameter["show"]["lw_first_date"] = $this->request->getInt("lw_first_date");
         $parameter["selectedLang"]          = $this->request->getAlnum("selectedLang");
         $parameter["logout_id"]             = $this->request->getInt("logout_id");
+        $parameter["bootstrap"]             = $this->request->getInt("bootstrap");
 
         $content = false;
         $this->repository->plugins()->savePluginData($this->pluginname, $this->oid, $parameter, $content);
@@ -88,7 +89,7 @@ class backend extends \lw_object
         $view->jqUIcss      = $this->config["url"]["media"] . "jquery/ui/css/smoothness/jquery-ui-1.8.7.custom.css";
         $view->bootstrapCSS = $this->config["url"]["media"] . "bootstrap/css/bootstrap.min.css";
         $view->bootstrapJS  = $this->config["url"]["media"] . "bootstrap/js/bootstrap.min.js";
-        $view->Css          = $this->config["url"]["resource"] . "plugins/lw_intranetuser/Assets/Css/LwIntranetuserBackend.css";
+        $view->Css          = $this->config["url"]["resource"] . "plugins/lw_intranetuser/assets/css/lwIntranetuserBackend.css";
         
         $view->de           = $this->response->getOutputByKey("i18n_de"); 
         $view->en           = $this->response->getOutputByKey("i18n_en"); 

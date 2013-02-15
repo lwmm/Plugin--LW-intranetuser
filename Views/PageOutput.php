@@ -55,10 +55,18 @@ class PageOutput
         } else {
              $this->view->response  = 0;
         }
+        
+        if(isset($plugindata["parameter"]["bootstrap"]) && $plugindata["parameter"]["bootstrap"] == 1) {
+            $this->view->useBootstrap   = 1;
+            $this->view->urlCSS         = $this->config["url"]["media"] . "/bootstrap/css/bootstrap.min.css";
+            $this->view->urlJS          = $this->config["url"]["media"] . "/bootstrap/js/bootstrap.min.js";
+        } else {
+            $this->view->useBootstrap   = 0;
+        }
+        
+        
         $this->view->show           = $plugindata["parameter"]["show"];
-        $this->view->urlPluginCSS   = $this->config["url"]["resource"] . "plugins/lw_intranetuser/Assets/Css/LwIntranetuser.css";
-        $this->view->urlCSS         = $this->config["url"]["media"] . "/bootstrap/css/bootstrap.min.css";
-        $this->view->urlJS          = $this->config["url"]["media"] . "/bootstrap/js/bootstrap.min.js";
+        $this->view->urlPluginCSS   = $this->config["url"]["resource"] . "plugins/lw_intranetuser/assets/css/lwIntranetuser.css";
         $this->view->url            = \lw_page::getInstance()->getUrl();
         $this->view->userId         = $logedInUserId;
         $this->view->admin          = $admin;

@@ -19,10 +19,13 @@
 });
 </script>
 <?php endif; ?>
-<link href="<?php echo $this->urlCSS ?>" rel="stylesheet">
 <link href="<?php echo $this->urlPluginCSS ?>" rel="stylesheet">
-<script type="text/javascript" src="<?php echo $this->urlJS ?>"></script>
 
+<?php if($this->useBootstrap == 1): ?>
+    <link href="<?php echo $this->urlCSS ?>" rel="stylesheet">
+    <script type="text/javascript" src="<?php echo $this->urlJS ?>"></script>
+<?php endif; ?>
+    
 <div id="intranet_container">
     <?php if(isset($this->show["logout"]) && $this->show["logout"] == 1): ?>
         <button id="logout_btn" type="button" class="btn btn-inverse" onclick="self.location.href='<?php echo $this->url . "&cmd=logout" ?>';"><?php echo $this->lang["logout"] ?></button>

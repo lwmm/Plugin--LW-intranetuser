@@ -25,6 +25,7 @@
             <li><a href="#de">Sprache: DE</a></li>
             <li><a href="#en">Sprache: EN</a></li>
             <li><a href="#logout_seite">Logout Seite</a></li>
+            <li><a href="#css">Bootstrap CSS</a></li>
         </ul>
         
         <div id="intranetuser_table">
@@ -104,6 +105,13 @@
             </div>   
             
             Seiten-Id : <input id="logout_id" type="number" name="logout_id" style="height:30px;margin-top: 5px;width: 40px;" value="<?php if(isset($this->data["parameter"]["logout_id"])) { echo $this->data["parameter"]["logout_id"]; } else { echo 0 ;} ?>">
+        </div>
+        
+        <div id="css">
+            <div class="description" >
+                Hier k&ouml;nnen Sie festlegen, ob "Boostrap CSS" verwendet werden soll :
+            </div>
+            Ja, "Bootsrap CSS" verwenden :&nbsp;&nbsp;&nbsp;<input style="margin-top: -1px;" type="checkbox" name="bootstrap" value="1" <?php if(isset($this->data["parameter"]["bootstrap"]) && $this->data["parameter"]["bootstrap"] == 1){echo "checked";};?>>&nbsp;&nbsp;&nbsp;
         </div>
         
         
