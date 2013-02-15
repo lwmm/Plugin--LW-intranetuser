@@ -1,0 +1,56 @@
+<link href="<?php echo $this->urlCSS ?>" rel="stylesheet">
+<link href="<?php echo $this->urlPluginCSS ?>" rel="stylesheet">
+<script type="text/javascript" src="<?php echo $this->urlJS ?>"></script>
+
+<div id="intranet_container">
+    <?php if(isset($this->show["logout"]) && $this->show["logout"] == 1): ?>
+        <button id="logout_btn" type="button" class="btn btn-inverse" onclick="self.location.href='<?php echo $this->url . "&cmd=logout" ?>';"><?php echo $this->lang["logout"] ?></button>
+    <?php endif; ?>
+    <?php if($this->admin === true): ?>
+        <button id="add_btn" type="button" class="btn" onclick="self.location.href='<?php echo $this->url . "&cmd=add" ?>';"><?php echo $this->lang["add_user"] ?></button>
+    <?php endif; ?>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <?php if(isset($this->show["id"]) && $this->show["id"] == 1): ?>                        <th><?php echo $this->lang["id"] ?></th>        <?php endif; ?>
+                <?php if(isset($this->show["username"]) && $this->show["username"] == 1): ?>            <th><?php echo $this->lang["username"] ?></th>  <?php endif; ?>
+                <?php if(isset($this->show["email"]) && $this->show["email"] == 1): ?>                  <th><?php echo $this->lang["email"] ?></th>     <?php endif; ?>
+                <?php if(isset($this->show["firstname"]) && $this->show["firstname"] == 1): ?>          <th><?php echo $this->lang["firstname"] ?></th> <?php endif; ?>
+                <?php if(isset($this->show["lastname"]) && $this->show["lastname"] == 1): ?>            <th><?php echo $this->lang["lastname"] ?></th>  <?php endif; ?>
+                <?php if(isset($this->show["info"]) && $this->show["info"] == 1): ?>                    <th><?php echo $this->lang["info"] ?></th>      <?php endif; ?>
+                <?php if(isset($this->show["last_login"]) && $this->show["last_login"] == 1): ?>        <th><?php echo $this->lang["last_login"] ?></th><?php endif; ?>
+                <?php if(isset($this->show["lw_first_date"]) && $this->show["lw_first_date"] == 1): ?>  <th><?php echo $this->lang["first_date"] ?></th><?php endif; ?>
+                <th style="width: 20px;">&nbsp;</th>
+                <?php if ($this->admin === true): ?><th style="width: 20px;">&nbsp;</th><?php endif; ?>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($this->userArray as $user): ?>
+                <tr>
+                    <?php if(isset($this->show["id"]) && $this->show["id"] == 1): ?>                        <td><?php echo $user["id"] ?></td>          <?php endif; ?>
+                    <?php if(isset($this->show["username"]) && $this->show["username"] == 1): ?>            <td><?php echo $user["name"] ?></td>        <?php endif; ?>
+                    <?php if(isset($this->show["email"]) && $this->show["email"] == 1): ?>                  <td><?php echo $user["email"] ?></td>       <?php endif; ?>
+                    <?php if(isset($this->show["firstname"]) && $this->show["firstname"] == 1): ?>          <td><?php echo $user["opt1text"] ?></td>    <?php endif; ?>
+                    <?php if(isset($this->show["lastname"]) && $this->show["lastname"] == 1): ?>            <td><?php echo $user["opt2text"] ?></td>    <?php endif; ?>
+                    <?php if(isset($this->show["info"]) && $this->show["info"] == 1): ?>                    <td><?php echo $user["opt1clob"] ?></td>    <?php endif; ?>
+                    <?php if(isset($this->show["last_login"]) && $this->show["last_login"] == 1): ?>        <td><?php echo $user["last_login"] ?></td>  <?php endif; ?>
+                    <?php if(isset($this->show["lw_first_date"]) && $this->show["lw_first_date"] == 1): ?>  <td><?php echo $user["lw_first_date"] ?></td><?php endif; ?>
+                    <td>
+                        <?php if ($this->admin === true || $this->userId == $user["id"]): ?>
+                            <a style="display:block;padding: 5px;" href="<?php echo $this->url . "&cmd=edit&id=" . $user["id"] ?>">
+                                <i class="icon-pencil"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+                    <?php if ($this->admin === true): ?>
+                    <td>
+                            <a style="display:block;padding: 5px;" href="#" onclick="if(confirm('<?php echo $this->lang["delete"] ?><?php echo " [" . $user["name"] . "] " ?>')) self.location.href='<?php echo $this->url . "&cmd=delete&id=" . $user["id"] ?>';">
+                                <i class="icon-remove"></i>
+                            </a>
+                    </td>
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="<?php echo $this->Css ?>" />
+<script type="text/javascript" src="<?php echo $this->jqUI ?>"></script>
+<link rel="stylesheet" href="<?php echo $this->jqUIcss ?>" />
+<script type="text/javascript" src="<?php echo $this->bootstrapJS ?>"></script>
+<link rel="stylesheet" href="<?php echo $this->bootstrapCSS ?>" />
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+        $( "#tabs" ).tabs();
+        $("#tabs li a").click(function() {
+            $("#tabs li a").removeClass('active');
+            $(this).addClass("active");
+        });
+    });
+</script>
+
+<fieldset class="lwadminform">
+
+    <legend class="lwadminform">lw_intranetuser Basisdaten bearbeiten</legend>
+    
+    <form action="<?php echo $this->actionUrl ?>" method="POST" >
+    <div id="tabs">
+        <ul>
+            <li><a href="#intranetuser_table" class="active">Benutzer-Tablle anpassen</a></li>
+            <li><a href="#de">Sprache: DE</a></li>
+            <li><a href="#en">Sprache: EN</a></li>
+            <li><a href="#logout_seite">Logout Seite</a></li>
+        </ul>
+        
+        <div id="intranetuser_table">
+            <div class="description" >
+                Bitte geben Sie hier an welche Spalten, bzw. ob der Logout-Button angezeit werden sollen:
+            </div>
+            
+            
+            
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" name="id" value="1" <?php if(isset($this->data["parameter"]["show"]["id"]) && $this->data["parameter"]["show"]["id"] == 1){echo "checked";};?>><br/>Id</th>
+                        <th><input type="checkbox" name="username" value="1" <?php if(isset($this->data["parameter"]["show"]["username"]) && $this->data["parameter"]["show"]["username"] == 1){echo "checked";};?>><br/>Benutzername</th>
+                        <th><input type="checkbox" name="email" value="1" <?php if(isset($this->data["parameter"]["show"]["email"]) && $this->data["parameter"]["show"]["email"] == 1){echo "checked";};?>><br/>Email</th>
+                        <th><input type="checkbox" name="firstname" value="1" <?php if(isset($this->data["parameter"]["show"]["firstname"]) && $this->data["parameter"]["show"]["firstname"] == 1){echo "checked";};?>><br/>Vorname</th>
+                        <th><input type="checkbox" name="lastname" value="1" <?php if(isset($this->data["parameter"]["show"]["lastname"]) && $this->data["parameter"]["show"]["lastname"] == 1){echo "checked";};?>><br/>Nachname</th>
+                        <th><input type="checkbox" name="info" value="1" <?php if(isset($this->data["parameter"]["show"]["info"]) && $this->data["parameter"]["show"]["info"] == 1){echo "checked";};?>><br/>Info</th>
+                        <th><input type="checkbox" name="last_login" value="1" <?php if(isset($this->data["parameter"]["show"]["last_login"]) && $this->data["parameter"]["show"]["last_login"] == 1){echo "checked";};?>><br/>Letzter Besuch</th>
+                        <th><input type="checkbox" name="lw_first_date" value="1" <?php if(isset($this->data["parameter"]["show"]["lw_first_date"]) && $this->data["parameter"]["show"]["lw_first_date"] == 1){echo "checked";};?>><br/>Registriert am</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Testnutzer</td>
+                        <td>an@nym.de</td>
+                        <td>Max</td>
+                        <td>Mustermann</td>
+                        <td>Beispieleintrag, wie die Intranetuser-Tablle aussehen k&ouml;nnte.</td>
+                        <td>12.02.2013 15:02</td>
+                        <td>12.02.2013 14:06</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="de">
+            <div class="description" >
+                Hier k&ouml;nnen Sie, f&uuml;r die jeweilige Sprache, die Ausgabetexte festlegen.<br>
+                <br>
+                &Auml;nderungen werden an allen Stellen angezeigt, wo dieses Plugin genutzt wird. Es liegt momenten nur ein Basisdatensatz f&uuml;r bereit, auf den
+                alle eingesetzten lw_intranetuser und lw_profile Plugins zugreifen!!!
+            </div>
+            
+            <input type="radio" name="selectedLang" value="de" style="margin-top: -2px;" <?php if($this->data["parameter"]["selectedLang"] == "de") { echo "checked=\"checked\""; } ?>> deutsche Ausgabe verwerden?<br/><br/>
+            
+            <div style="margin-bottom:20px;">
+                <input class="btn btn-primary" type="submit" value="speichern" />&nbsp;<input class="btn" type="button" value="abbrechen" onclick="document.location.href='?obj=content';"/>
+            </div>
+            <?php echo $this->de ?> 
+        </div>
+        
+        <div id="en">
+            <div class="description" >
+                Hier k&ouml;nnen Sie, f&uuml;r die jeweilige Sprache, die Ausgabetexte festlegen.<br>
+                <br>
+                &Auml;nderungen werden an allen Stellen angezeigt, wo dieses Plugin genutzt wird. Es liegt momenten nur ein Basisdatensatz f&uuml;r bereit, auf den
+                alle eingesetzten lw_intranetuser und lw_profile Plugins zugreifen!!!
+            </div>
+            
+            <input type="radio" name="selectedLang" value="en" style="margin-top: -2px;" <?php if($this->data["parameter"]["selectedLang"] == "en") { echo "checked=\"checked\""; } ?>> englische Ausgabe verwerden?<br/><br/>
+            
+            <div style="margin-bottom:20px;">
+                <input class="btn btn-primary" type="submit" value="speichern" />&nbsp;<input class="btn" type="button" value="abbrechen" onclick="document.location.href='?obj=content';"/>
+            </div>
+            
+            <?php echo $this->en ?> 
+        </div>
+        
+        <div id="logout_seite">
+            <div class="description" >
+                Hier k&ouml;nnen Sie die Logout-Seite festlegen ( Id der gew&uuml;nschten Seite eingeben ):
+            </div>
+            
+            <div id="logout">
+                Diesen Logout Button &uuml;ber der Intranetusertablle anzeigen ?&nbsp;&nbsp;&nbsp;<input type="checkbox" name="logout" value="1" <?php if(isset($this->data["parameter"]["show"]["logout"]) && $this->data["parameter"]["show"]["logout"] == 1){echo "checked";};?>>&nbsp;&nbsp;&nbsp;
+                <input class="btn btn-inverse" type="button" value="Logout">
+            </div>   
+            
+            Seiten-Id : <input id="logout_id" type="number" name="logout_id" style="height:30px;margin-top: 5px;width: 40px;" value="<?php if(isset($this->data["parameter"]["logout_id"])) { echo $this->data["parameter"]["logout_id"]; } else { echo 0 ;} ?>">
+        </div>
+        
+        
+        <div style="margin-top:15px;margin-bottom:20px; margin-left:20px;">
+            <input class="btn btn-primary" type="submit" value="speichern" />&nbsp;<input class="btn" type="button" value="abbrechen" onclick="document.location.href='?obj=content';"/>
+        </div>
+        
+    </div>
+    </form>
+</fieldset>
