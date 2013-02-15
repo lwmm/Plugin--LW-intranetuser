@@ -60,14 +60,22 @@
                     <td>
                         <?php if ($this->admin === true || $this->userId == $user["id"]): ?>
                             <a style="display:block;padding: 5px;" href="<?php echo $this->url . "&cmd=edit&id=" . $user["id"] ?>">
-                                <i class="icon-pencil"></i>
+                                <?php if($this->useBootstrap == 1): ?>
+                                    <i class="icon-pencil"></i>
+                                <?php else: ?>
+                                    edit
+                                <?php endif;?>
                             </a>
                         <?php endif; ?>
                     </td>
                     <?php if ($this->admin === true): ?>
                     <td>
                             <a style="display:block;padding: 5px;" href="#" onclick="if(confirm('<?php echo $this->lang["delete"] ?><?php echo " [" . $user["name"] . "] " ?>')) self.location.href='<?php echo $this->url . "&cmd=delete&id=" . $user["id"] ?>';">
-                                <i class="icon-remove"></i>
+                                <?php if($this->useBootstrap == 1): ?>
+                                    <i class="icon-remove"></i>
+                                <?php else: ?>
+                                    delete
+                                <?php endif;?>
                             </a>
                     </td>
                     <?php endif; ?>
