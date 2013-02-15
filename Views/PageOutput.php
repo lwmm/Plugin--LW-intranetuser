@@ -49,6 +49,12 @@ class PageOutput
             if(!empty($user["lw_first_date"]))  $userArray[$key]["lw_first_date"] = $this->intDateToNiceDate($user["lw_first_date"]);
         }
 
+        if($this->request->getInt("result")) {
+            $this->view->jqUI       = $this->config["url"]["media"] . "jquery/jquery.min.js";
+            $this->view->response   = $this->request->getInt("result");
+        } else {
+             $this->view->response  = 0;
+        }
         $this->view->show           = $plugindata["parameter"]["show"];
         $this->view->urlPluginCSS   = $this->config["url"]["resource"] . "plugins/lw_intranetuser/Assets/Css/LwIntranetuser.css";
         $this->view->urlCSS         = $this->config["url"]["media"] . "/bootstrap/css/bootstrap.min.css";
