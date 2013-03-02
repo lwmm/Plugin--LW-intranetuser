@@ -53,7 +53,7 @@ class lw_intranetuser extends lw_plugin
             $user->setLoginStatusTrue();
             $user->setAdmin(false);
             
-            if($this->config["intranetUser"]["admin"] == $this->in_auth->getUserData("intranet_id") ) {
+            if(intval($this->config["intranetUser"]["admin"]) === intval($this->in_auth->getUserData("intranet_id")) ) {
                 $user->setAdmin(true);
             }
             if($this->auth->isLoggedIn()) {
