@@ -105,11 +105,11 @@ class backend extends \lw_object
     public function collectDataforLwI18nPlugin($lang = false)
     {
         $intranetDE = \lwIntranetuser\Views\PageOutput::fillPlaceHolderWithSelectedLanguage("de");
-        $profileDE  = \lwProfile\Views\PageOutPut::fillPlaceHolderWithSelectedLanguage("de");
+        $profileDE  = \lwProfile\Views\PageOutput::fillPlaceHolderWithSelectedLanguage("de");
         $de         = array_merge(array($this->pluginname => $intranetDE), array("lw_profile" => $profileDE));
         
         $intranetEN = \lwIntranetuser\Views\PageOutput::fillPlaceHolderWithSelectedLanguage("en");
-        $profileEN  = \lwProfile\Views\PageOutPut::fillPlaceHolderWithSelectedLanguage("en");
+        $profileEN  = \lwProfile\Views\PageOutput::fillPlaceHolderWithSelectedLanguage("en");
         $en         = array_merge(array($this->pluginname => $intranetEN), array("lw_profile" => $profileEN)); 
         
         switch ($lang) {

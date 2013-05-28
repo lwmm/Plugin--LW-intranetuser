@@ -31,12 +31,12 @@ class Autoloader
         
         switch ($array[0]) {
             case "lwProfile":
-                $path = dirname(__FILE__).'/../../lw_profile';
+                $path = dirname(__FILE__).'/../../Plugin--LW-profile';
                 $filename = str_replace('lwProfile', $path, $className);
                 break;
 
             case "LwI18n":
-                $path = dirname(__FILE__).'/../../lw_i18n';
+                $path = dirname(__FILE__).'/../../Plugin--LW-i18n';
                 $filename = str_replace('LwI18n', $path, $className);
                 break;
             
@@ -48,7 +48,7 @@ class Autoloader
         
         $filename = str_replace('\\', '/', $filename).'.php';
         if (is_file($filename)) {
-            //echo $filename." exists<br>";
+            #echo $filename." exists<br>";
             include_once($filename);
         }
     }
