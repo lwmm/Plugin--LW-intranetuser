@@ -40,8 +40,13 @@ class lw_intranetuser extends lw_plugin
      */
     public function buildPageOutput()
     {
+        if($this->request->getAlnum("cmd") == "checkpw"){
+            $pws = new \lw_passwordStrength('', $this->request->getRaw('pw'));
+            exit($pws->getPasswordStrength());
+        }
+        
         $plugindata = $this->repository->plugins()->loadPluginData($this->getPluginName(),$this->params['oid']);
-
+        
         if($this->request->getAlnum("cmd") == "logout"){
             $this->in_auth->logout();
             $this->pageReload(\lw_page::getInstance($plugindata["parameter"]["logout_id"])->getUrl());

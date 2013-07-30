@@ -49,8 +49,6 @@ class IntranetuserController extends \lw_object
         $this->user = $user;
         $this->commandHandler = new \lwIntranetuser\Model\CommandHandler($db);
         $this->queryHandler = new \lwIntranetuser\Model\QueryHandler($db);
-        $this->validate = new \lwIntranetuser\Services\FormValidate();
-        $this->view = new \lwIntranetuser\Views\PageOutput($this->config, $this->request, $this->db);
         $this->auth = \lw_registry::getInstance()->getEntry("auth");
     }
     
@@ -82,7 +80,8 @@ class IntranetuserController extends \lw_object
             
             default:
                 $allUser = $this->queryHandler->getAllUser();
-                $this->response->setOutputByKey("intranet",$this->view->render($allUser, $this->userObject->getUserData("id"), $this->user->getData("admin"),$this->plugindata));
+                $view = new \lwIntranetuser\Views\PageOutput($this->config, $this->request, $this->db);
+                $this->response->setOutputByKey("intranet",$view->render($allUser, $this->userObject->getUserData("id"), $this->user->getData("admin"),$this->plugindata));
                 break;
         }
     }
